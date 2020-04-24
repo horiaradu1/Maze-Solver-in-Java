@@ -18,7 +18,7 @@ public class Tile implements Serializable {
 
     /**
      * From char tile.
-     *
+     * This function verifies the reading of the maze and changes each tiles type to the one it should be
      * @param c the c
      * @return the tile
      * @throws InvalidMazeException the invalid maze exception
@@ -68,7 +68,7 @@ public class Tile implements Serializable {
 
     /**
      * To string string.
-     *
+     * This translate a tile type to string
      * @return the string
      */
     @Override

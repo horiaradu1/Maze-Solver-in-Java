@@ -20,6 +20,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Instantiates a new Route finder.
+     * This is the function that actually finds the route and where to go next from its current location
      *
      * @param m the m
      */
@@ -56,6 +57,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Is there any route.
+     * This is a function that checks if there is any possible route
      *
      * @throws NoRouteFoundException the no route found exception
      */
@@ -66,7 +68,8 @@ public class RouteFinder implements Serializable {
         }
     }
 
-    //Flooding algorithm
+    // Flooding algorithm
+    // This just fills the maze so that we can work with it by using the flooding algorithm
     private void flood(int i, int j, int distance){
         if (this.distances[i][j]==0){
             distances[i][j] = distance;
@@ -105,7 +108,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Is finished boolean.
-     *
+     * Function that checks if the maze is finished
      * @return the boolean
      */
     public boolean isFinished() {
@@ -114,7 +117,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Save.
-     *
+     * This function saves our current maze state
      * @param file the file
      * @throws IOException the io exception
      */
@@ -128,7 +131,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Load route finder.
-     *
+     * This function loads a specified maze map along with the route saved
      * @param file the file
      * @return the route finder
      * @throws IOException            the io exception
@@ -147,7 +150,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Load map route finder.
-     *
+     * This function loads a maze map
      * @param file the file
      * @return the route finder
      */
@@ -170,7 +173,7 @@ public class RouteFinder implements Serializable {
 
     /**
      * Step boolean.
-     *
+     * This function is the main step function that makes the next move in the maze solver
      * @return the boolean
      */
 //CHANGE

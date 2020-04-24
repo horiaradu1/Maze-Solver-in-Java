@@ -35,7 +35,7 @@ public class MazeApplication extends Application {
 
     /**
      * Start.
-     *
+     * This function is the main one for the running of the application
      * @param primaryStage the primary stage
      * @throws Exception the exception
      */
@@ -68,7 +68,7 @@ public class MazeApplication extends Application {
         primaryStage.setTitle("Maze");
         primaryStage.setScene(scene);
 
-
+        // This is the step button
         stepB.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -82,6 +82,7 @@ public class MazeApplication extends Application {
             }
         });
 
+        // This is the load map button
         loadMapB.setOnAction(actionEvent -> {
             String file = loadMapTxt.getText();
             routeFinder = RouteFinder.loadMap("/home/horia/Documents/JavaStuff/comp16412-coursework-2_k55592hr/mazes/" + file + ".txt");
@@ -91,6 +92,7 @@ public class MazeApplication extends Application {
             primaryStage.setHeight(canvas.getHeight()+167);
         });
 
+        // This is the load route button
         loadRouteB.setOnAction(actionEvent -> {
             String file = loadRouteTxt.getText();
             try {
@@ -105,6 +107,7 @@ public class MazeApplication extends Application {
             primaryStage.setHeight(canvas.getHeight() + 167);
         });
 
+        // This is the save route button
         saveRouteB.setOnAction(actionEvent -> {
             String file = saveRouteTxt.getText();
             try {

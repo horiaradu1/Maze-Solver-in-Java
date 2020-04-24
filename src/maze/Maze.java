@@ -24,7 +24,7 @@ public class Maze implements Serializable {
 
     /**
      * From txt maze.
-     *
+     * Transforms the txt file of a maze to an array that we use in our programme
      * @param txt the txt
      * @return the maze
      * @throws InvalidMazeException the invalid maze exception
@@ -234,7 +234,7 @@ public class Maze implements Serializable {
 
         /**
          * Change to maze coordinate.
-         *
+         * This function changes the coordinates to ones that we use to display the maze
          * @param rowNumber the row number
          * @return the coordinate
          */
@@ -246,7 +246,7 @@ public class Maze implements Serializable {
 
         /**
          * Change to read coordinate.
-         *
+         * This function changes the coordinates to ones that we use to solve maze
          * @param rowNumber the row number
          * @return the coordinate
          */

@@ -36,7 +36,7 @@ public class Graphics {
 
     /**
      * Make canvas canvas.
-     *
+     * This creates the first canvas that is showed to the user
      * @param maze the maze
      * @return the canvas
      */
@@ -53,7 +53,7 @@ public class Graphics {
 
     /**
      * Make canvas re.
-     *
+     * This re-creates the canvas for the user when he loads another map or route
      * @param canvas the canvas
      * @param maze   the maze
      */
@@ -69,7 +69,7 @@ public class Graphics {
 
     /**
      * Draw maze.
-     *
+     * This function draws the maze itself with the tiles and block and all, but not the route
      * @param canvas the canvas
      * @param maze   the maze
      */
@@ -99,7 +99,7 @@ public class Graphics {
 
     /**
      * Draw route.
-     *
+     * This draws the route specifically
      * @param canvas      the canvas
      * @param routeFinder the route finder
      */
