@@ -5,7 +5,15 @@ import maze.routing.RouteFinder;
 
 import java.io.IOException;
 
+/**
+ * The type Maze driver.
+ */
 public class MazeDriver {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main (String[] args) {
 
         try {

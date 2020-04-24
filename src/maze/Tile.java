@@ -2,6 +2,9 @@ package maze;
 
 import java.io.Serializable;
 
+/**
+ * The type Tile.
+ */
 public class Tile implements Serializable {
     private Type type;
     private int localIndex;
@@ -13,6 +16,13 @@ public class Tile implements Serializable {
         globalIndex += 1;
     }
 
+    /**
+     * From char tile.
+     *
+     * @param c the c
+     * @return the tile
+     * @throws InvalidMazeException the invalid maze exception
+     */
     protected static Tile fromChar(char c) throws InvalidMazeException{
         if (c == '.'){
             return new Tile(Type.CORRIDOR);
@@ -29,18 +39,38 @@ public class Tile implements Serializable {
         throw new InvalidMazeException("Invalid Character Entered");
     }
 
+    /**
+     * Gets local index.
+     *
+     * @return the local index
+     */
     public int getLocalIndex() {
         return localIndex;
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public Type getType() {
         return type;
     }
 
+    /**
+     * Is navigable boolean.
+     *
+     * @return the boolean
+     */
     public boolean isNavigable() {
         return this.type != Type.WALL;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         if (this.type == Type.CORRIDOR){
@@ -58,7 +88,25 @@ public class Tile implements Serializable {
         return null;
     }
 
+    /**
+     * The enum Type.
+     */
     public enum Type {
-        CORRIDOR,ENTRANCE,EXIT,WALL;
+        /**
+         * Corridor type.
+         */
+        CORRIDOR,
+        /**
+         * Entrance type.
+         */
+        ENTRANCE,
+        /**
+         * Exit type.
+         */
+        EXIT,
+        /**
+         * Wall type.
+         */
+        WALL;
     }
 }

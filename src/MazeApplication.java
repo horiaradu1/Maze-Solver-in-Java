@@ -14,6 +14,9 @@ import maze.visualisation.Graphics;
 
 import java.io.IOException;
 
+/**
+ * The type Maze application.
+ */
 public class MazeApplication extends Application {
 
     private RouteFinder routeFinder;
@@ -21,10 +24,21 @@ public class MazeApplication extends Application {
     private Canvas canvas;
     private Scene scene;
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Start.
+     *
+     * @param primaryStage the primary stage
+     * @throws Exception the exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.maze = Maze.fromTxt("/home/horia/Documents/JavaStuff/comp16412-coursework-2_k55592hr/mazes/maze1.txt");

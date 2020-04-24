@@ -9,12 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * The type Route finder.
+ */
 public class RouteFinder implements Serializable {
     private Maze maze;
     private Stack<Tile> route;
     private boolean finished;
     private int distances[][];
 
+    /**
+     * Instantiates a new Route finder.
+     *
+     * @param m the m
+     */
     public RouteFinder(Maze m){
         this.maze = m;
         this.route = new Stack<Tile>();
@@ -46,6 +54,11 @@ public class RouteFinder implements Serializable {
         }
     }
 
+    /**
+     * Is there any route.
+     *
+     * @throws NoRouteFoundException the no route found exception
+     */
     public void isThereAnyRoute() throws NoRouteFoundException {
         Maze.Coordinate entranceLoc = this.maze.getTileLocation(this.maze.getEntrance()).changeToRead(this.maze.getRows());
         if (distances[entranceLoc.getX()][entranceLoc.getY()] == 0){
@@ -72,17 +85,39 @@ public class RouteFinder implements Serializable {
         }
     }
 
+    /**
+     * Gets maze.
+     *
+     * @return the maze
+     */
     public Maze getMaze() {
         return maze;
     }
 
+    /**
+     * Gets route.
+     *
+     * @return the route
+     */
     public List<Tile> getRoute() {
         return (List<Tile>) route;
     }
 
+    /**
+     * Is finished boolean.
+     *
+     * @return the boolean
+     */
     public boolean isFinished() {
         return finished;
     }
+
+    /**
+     * Save.
+     *
+     * @param file the file
+     * @throws IOException the io exception
+     */
 //CHANGE
     public void save(String file) throws IOException {
         FileOutputStream fos = new FileOutputStream(file);
@@ -90,6 +125,15 @@ public class RouteFinder implements Serializable {
         oos.writeObject(this);
         oos.close();
     }
+
+    /**
+     * Load route finder.
+     *
+     * @param file the file
+     * @return the route finder
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public static RouteFinder load(String file) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(file);
         if (fis.available() == 0){
@@ -101,6 +145,12 @@ public class RouteFinder implements Serializable {
         return result;
     }
 
+    /**
+     * Load map route finder.
+     *
+     * @param file the file
+     * @return the route finder
+     */
     public static RouteFinder loadMap(String file){
         Maze maze = null;
         try {
@@ -117,6 +167,12 @@ public class RouteFinder implements Serializable {
         }
         return loadMap("/home/horia/Documents/JavaStuff/comp16412-coursework-2_k55592hr/mazes/maze1.txt");
     }
+
+    /**
+     * Step boolean.
+     *
+     * @return the boolean
+     */
 //CHANGE
     public boolean step(){
         if (this.finished){
@@ -174,6 +230,11 @@ public class RouteFinder implements Serializable {
         return false;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         StringBuilder mazeString = new StringBuilder();
@@ -190,6 +251,12 @@ public class RouteFinder implements Serializable {
         return mazeString.toString();
     }
 
+    /**
+     * In route boolean.
+     *
+     * @param tile the tile
+     * @return the boolean
+     */
     public boolean inRoute (Tile tile){
         for (Tile t : route){
             if (t.getLocalIndex() == tile.getLocalIndex())
@@ -198,6 +265,9 @@ public class RouteFinder implements Serializable {
         return false;
     }
 
+    /**
+     * Print route.
+     */
     public void printRoute(){
         for (Tile t : route){
             System.out.println(("Tile at " + maze.getTileLocation(t).toString()));
