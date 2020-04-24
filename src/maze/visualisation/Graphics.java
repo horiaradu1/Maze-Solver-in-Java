@@ -42,6 +42,11 @@ public class Graphics {
      */
     public static Canvas makeCanvas (Maze maze){
         Canvas canvas = new Canvas(maze.getCols()* tileSize, maze.getRows()* tileSize);
+        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
+        graphicsContext.setFill(Color.CORNSILK);
+        canvas.setWidth(maze.getCols()* tileSize);
+        canvas.setHeight(maze.getRows()* tileSize);
+        graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         drawMaze(canvas, maze);
         return canvas;
     }
@@ -54,7 +59,7 @@ public class Graphics {
      */
     public static void makeCanvasRe (Canvas canvas, Maze maze){
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        graphicsContext.setFill(Color.WHITE);
+        graphicsContext.setFill(Color.CORNSILK);
         canvas.setWidth(maze.getCols()* tileSize);
         canvas.setHeight(maze.getRows()* tileSize);
         graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -70,21 +75,21 @@ public class Graphics {
      */
     public static void drawMaze(Canvas canvas, Maze maze){
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        graphicsContext.setFill(Color.WHITE);
+        graphicsContext.setFill(Color.CORNSILK);
         for (int i = 0; i < maze.getRows(); i++){
             for (int j = 0; j < maze.getCols(); j++){
 //                if (maze.getTiles().get(i).get(j).isNavigable()){
                     if (maze.getTiles().get(i).get(j).getType() == Tile.Type.WALL){
-                        graphicsContext.setFill(Color.ROSYBROWN);
+                        graphicsContext.setFill(Color.BLACK);
                         graphicsContext.fillRoundRect(j* tileSize, i* tileSize, tileSize, tileSize, tileSize /3, tileSize /3);
 //                    }else if (maze.getTiles().get(i).get(j).getType() == Type.CORRIDOR){
 //                        graphicsContext.setFill(Color.WHITE);
 //                        graphicsContext.fillRoundRect(j* tileSize, i* tileSize, tileSize, tileSize, tileSize /3, tileSize /3);
                     }else if (maze.getTiles().get(i).get(j).getType() == Tile.Type.ENTRANCE){
-                        graphicsContext.setFill(Color.BLUE);
+                        graphicsContext.setFill(Color.TOMATO);
                         graphicsContext.fillRoundRect(j* tileSize, i* tileSize, tileSize, tileSize, tileSize /3, tileSize /3);
                     }else if (maze.getTiles().get(i).get(j).getType() == Tile.Type.EXIT){
-                        graphicsContext.setFill(Color.GREEN);
+                        graphicsContext.setFill(Color.CHARTREUSE);
                         graphicsContext.fillRoundRect(j* tileSize, i* tileSize, tileSize, tileSize, tileSize /3, tileSize /3);
                     }
 //                }
@@ -105,7 +110,7 @@ public class Graphics {
             Maze maze = routeFinder.getMaze();
             Maze.Coordinate coords = maze.getTileLocation(tile).changeToRead(maze.getRows());
             GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-            graphicsContext.setFill(Color.RED);
+            graphicsContext.setFill(Color.DEEPSKYBLUE);
             graphicsContext.fillRoundRect(coords.getY()* tileSize, coords.getX()* tileSize, tileSize, tileSize, tileSize /3, tileSize /3);
 
         }
