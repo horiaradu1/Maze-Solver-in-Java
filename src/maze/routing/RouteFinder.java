@@ -190,32 +190,32 @@ public class RouteFinder implements Serializable {
         int minDistance = distances[x][y];
 
         if (lastLoc.getX() >= 1){
-            System.out.println("Got up");
-            System.out.println(distances[x-1][y]);
+            //System.out.println("Got up");
+            //System.out.println(distances[x-1][y]);
             if (distances[x-1][y] < minDistance){
                 minDistance = distances[x-1][y];
                 nextLoc = new Maze.Coordinate(x-1, y);
             }
         }
         if (lastLoc.getY() >= 1){
-            System.out.println("Got left");
-            System.out.println(distances[x][y-1]);
+            //System.out.println("Got left");
+            //System.out.println(distances[x][y-1]);
             if (distances[x][y-1] < minDistance){
                 minDistance = distances[x][y-1];
                 nextLoc = new Maze.Coordinate(x, y-1);
             }
         }
         if (lastLoc.getX() <= this.maze.getRows()-2){
-            System.out.println("Got down");
-            System.out.println(distances[x+1][y]);
+            //System.out.println("Got down");
+            //System.out.println(distances[x+1][y]);
             if (distances[x+1][y] < minDistance){
                 minDistance = distances[x+1][y];
                 nextLoc = new Maze.Coordinate(x+1, y);
             }
         }
         if (lastLoc.getY() <= this.maze.getCols()-2){
-            System.out.println("Got right");
-            System.out.println(distances[x][y+1]);
+            //System.out.println("Got right");
+            //System.out.println(distances[x][y+1]);
             if (distances[x][y+1] < minDistance){
                 minDistance = distances[x][y+1];
                 nextLoc = new Maze.Coordinate(x, y+1);
